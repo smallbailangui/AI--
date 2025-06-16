@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-05-05T21:42:03.318208",
+  "input_file": "input.txt",
+  "output_file": "output.json",
+  "tasks": {
+    "summarization": {
+      "prompt": "用中文简洁总结文章",
+      "input": "是的，**MySQL 8.0.16** 是 **MySQL Community Server** 的一部分，而 **MySQL Community Server** 是完全免费的。MySQL 提供了两种版本：\n\n---\n\n### 1. **MySQL Community Server**\n- **免费**：MySQL Community Server 是开源且免费的，适用于大多数个人和小型企业。\n- **功能**：包含 MySQL 的核心功能，支持大多数常见的数据库操作。\n- **许可证**：遵循 GNU General Public License (GPL)，允许用户自由使用、修改和分发。\n\n---\n\n### 2. **MySQL Enterprise Edition**\n- **收费**：MySQL Enterprise Edition 是商业版本，提供额外的企业级功能和支持服务。\n- **功能**：包括高级安全性、备份工具、监控工具和技术支持。\n- **适用场景**：适合需要高级功能和技术支持的大型企业。\n\n---\n\n### 如何获取 MySQL 8.0.16\n如果你需要使用 **MySQL 8.0.16** 或更高版本，可以通过以下方式获取：\n\n#### 1. **从 MySQL 官网下载**\n   - 访问 MySQL 官方网站：[MySQL Downloads](https://dev.mysql.com/downloads/mysql/)\n   - 选择 **MySQL Community Server**。\n   - 选择适合你操作系统的版本（如 Windows、Linux、macOS）。\n   - 下载并安装。\n\n#### 2. **使用包管理器安装**\n   - 在 Linux 系统上，可以通过包管理器（如 `apt`、`yum`）安装 MySQL。\n   - 例如，在 Ubuntu 上：\n     ```bash\n     sudo apt update\n     sudo apt install mysql-server\n     ```\n\n#### 3. **使用 Docker 运行 MySQL**\n   - 如果你喜欢使用 Docker，可以通过以下命令运行 MySQL 8.0.16：\n     ```bash\n     docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=your_password -d mysql:8.0.16\n     ```\n\n---\n\n### 如何检查 MySQL 版本\n安装完成后，可以通过以下命令检查 MySQL 版本：\n```sql\nSELECT VERSION();\n```\n或者通过命令行：\n```bash\nmysql --version\n```\n\n---\n\n### 总结\n- **MySQL 8.0.16** 是免费的，属于 **MySQL Community Server**。\n- 你可以从 MySQL 官网下载，或通过包管理器、Docker 安装。\n- 如果需要企业级功能和支持，可以选择付费的 **MySQL Enterprise Edition**。",
+      "output": "MySQL 8.0.16属于免费的社区版（Community Server），适合个人和小企业；企业版（Enterprise Edition）收费，提供高级功能和支持。可通过官网、包管理器或Docker安装，安装后可用命令检查版本。"
+    }
+  }
+}
