@@ -6,10 +6,13 @@ from sklearn.model_selection import train_test_split
 
 # 使用sklearn加载糖尿病数据集
 diabetes = load_diabetes()
-X = diabetes.data  # 特征
-y = diabetes.target  # 目标变量
+X = diabetes.data  # 特征，这里包含10个特征
+y = diabetes.target  # 目标变量,这里代表的是糖尿病患者一年后疾病进展的定量测量
 
 # 数据预处理
+'''
+这一步不是很清楚原理，后续需要查阅相关资料
+'''
 scaler = StandardScaler() # 标准化特征
 X = scaler.fit_transform(X) # 特征标准化,先拟合再转换
 
