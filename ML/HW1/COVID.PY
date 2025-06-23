@@ -74,9 +74,10 @@ class My_Model(nn.Module):
     def __init__(self, input_dim):
         super(My_Model, self).__init__()
         # TODO: modify model's structure, be aware of dimensions. 
+        # 尝试了第一个TODO,效果不佳
         #一个简单的三层全链接层的神经网络模型
         self.layers = nn.Sequential(
-            nn.Linear(input_dim, 16),#全连接层
+            nn.Linear(input_dim, 16), # input_dim is the number of features
             nn.ReLU(),#激活函数
             nn.Linear(16, 8),
             nn.ReLU(),
@@ -97,7 +98,9 @@ def select_feat(train_data, valid_data, test_data, select_all=True):
     if select_all:
         feat_idx = list(range(raw_x_train.shape[1]))
     else:
-        feat_idx = [0,1,2,3,4] # TODO: Select suitable feature columns.
+        # feat_idx = [0,1,2,3,4] # TODO: Select suitable feature columns.
+        # 第二个TODO,将id号这个额外标识信息的维度去掉
+        feat_idx = list(range(1, raw_x_train.shape[1]))  # 从第1列到最后一列（不含id）
         
     return raw_x_train[:,feat_idx], raw_x_valid[:,feat_idx], raw_x_test[:,feat_idx], y_train, y_valid
 
@@ -110,6 +113,8 @@ def trainer(train_loader, valid_loader, model, config, device):
     # Define your optimization algorithm. 
     # TODO: Please check https://pytorch.org/docs/stable/optim.html to get more available algorithms.
     # TODO: L2 regularization (optimizer(weight decay...) or implement by your self).
+    # 尝试不同的优化器算法：Adadelta,Adafactor,Adagrad,Adam,AdamW,SparseAdam,Adamax,ASGD,LBFGS,NAdam,RAdam,RMSprop,Rprop,SGD
+    # SGD RAdam NAdam Adamw ASGD NAdam Adam Adamax 这里按照顺序给出几个Loss值可以到个位数的优化器
     optimizer = torch.optim.SGD(model.parameters(), lr=config['learning_rate'], momentum=0.9) 
 	
 	#训练过程可视化器
@@ -176,7 +181,7 @@ def trainer(train_loader, valid_loader, model, config, device):
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 config = {
     'seed': 5201314,      # 制定模型的随即种子以保证模型的可恢复性。Your seed number, you can pick your lucky number. :)
-    'select_all': True,   # Whether to use all features.
+    'select_all': False,   # Whether to use all features.
     'valid_ratio': 0.2,   # validation_size = train_size * valid_ratio
     'n_epochs': 3000,     # Number of epochs.            
     'batch_size': 256, 
