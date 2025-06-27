@@ -15,6 +15,7 @@
 - `hw3`是李宏毅老师的生成式AI课程中的作业
 - `test`是平时的测试代码，这里留存的都是当时复习文件操作的代码，python的没有留着，因为前不久又复习了一遍
 - `pytorch/`：PyTorch 深度学习入门代码，这部分网课是跟着 [B站网课](https://www.bilibili.com/video/BV1Y7411d7Ys/?spm_id_from=333.1387.favlist.content.click)，总共十一个小时
+- `ML`:这部分是李宏毅老师课程的作业，目前写完作业一
 
 ## 深度学习总体流程
 
